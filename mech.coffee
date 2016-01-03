@@ -1,17 +1,22 @@
 _ = require('lodash')
+Engine = require('./engine.coffee')
 
 class Mech
   constructor: (data)->
-    @base = data.base # TODO: misnomer?
+    @base = data.base
     @omni = data.omni
     @weight = data.weight
     @chassis = data.chassis
+    @walk = data.walk
+    @run = _.ceil(data.walk * 1.5)
+    @engine = new Engine(data)
 
   valid: ->
     (@validBase() and
      @validOmni() and
      @validWeight() and
-     @validChassis())
+     @validChassis() and
+     _.isObject(@engine))
   validBase: ->
     not _.isEmpty(@base) and @base == 'Inner Sphere' or @base == 'Clan'
   validOmni: -> _.isBoolean(@omni)

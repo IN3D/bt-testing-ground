@@ -13,10 +13,10 @@ describe 'A Mech', ->
     expect(mech.validOmni()).toEqual(true)
     expect(mech.validWeight()).toEqual(true)
     expect(mech.validChassis()).toEqual(true)
+    expect(mech.engine).toEqual(jasmine.any(Object))
     expect(mech.valid()).toEqual(true)
 
-  # mildly redundant, but has more detail
-  it 'Must have a valid weight', ->
+  it 'should have a valid weight', ->
     lightMech = new Mech({weight: 20})
     assaultMech = new Mech({weight: 100})
     invalidMech = new Mech({weight: 200})
@@ -27,6 +27,6 @@ describe 'A Mech', ->
     expect(invalidMech.validWeight()).toBe(false)
     expect(otherInvalidMech.validWeight()).toBe(false)
 
-  it 'Must have a weight which is a factor of 5', ->
+  it 'should have a weight which is a factor of 5', ->
     invalidMech = new Mech({weight: 33})
     expect(invalidMech.validWeight()).toBe(false)
