@@ -17,12 +17,12 @@ gulp.task('browserify:tests', function() {
     .pipe(gulp.dest('./tests/'));
 });
 
-gulp.task('runTest', ['browserify:tests'], function() {
+gulp.task('runTests', ['browserify:tests'], function() {
   return gulp.src('./tests/specs.js')
     .pipe(jasmine());
 });
 
 gulp.task('default', function() {
-  gulp.watch('./tests/*.spec.coffee', ['browserify:tests', 'runTest']);
-  gulp.watch('./*.coffee', ['browserify:tests', 'runTest']);
+  gulp.watch('./tests/*.spec.coffee', ['browserify:tests', 'runTests']);
+  gulp.watch('./*.coffee', ['browserify:tests', 'runTests']);
 });
