@@ -6,7 +6,9 @@
   "scripts": {
     "test": "gulp runTest"
   },
-  "author": "",
+  "author": "Eric Hopkins",
+  "private": true,
+  "repository": "https://github.com/IN3D/bt-testing-ground.git",
   "license": "ISC",
   "dependencies": {
     "lodash": "^3.10.1"
